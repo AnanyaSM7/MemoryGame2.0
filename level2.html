@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Level 2</title>
+  <link rel="stylesheet" href="level2.css" />
+</head>
+<body>
+ 
+
+  <h1>Level 2</h1>
+
+<div class="main-container">
+  <!-- Creative Score and Timer Panel -->
+  <div class="scoreboard-panel">
+    <div class="panel-header">LEVEL STATUS</div>
+    <div class="panel-info">
+      <div><strong>⏱ TIME:</strong> <span id="timer">01:00</span></div>
+      <div><strong>🏆 SCORE:</strong> <span id="score">0</span></div>
+    </div>
+  </div>
+
+  <!-- Game Grid -->
+  <div class="game-board" id="gameBoard"></div>
+
+  <!-- 🎞️ GIF Animation Container -->
+  <div class="gif-container">
+ <img src="images/cc.gif" alt="GIF" class="level-gif">
+  </div>
+</div>
+
+
+
+
+  <div id="level-clear-message" class="hidden">Level 2 Cleared!</div>
+  <div id="timeout-message" class="hidden">Time out!</div>
+
+
+<!-- New button container -->
+<div id="next-level-container" class="hidden">
+  <button id="next-level-btn">Level 3</button>
+</div>
+
+
+  <script src="level2.js"></script>
+</body>
+</html>

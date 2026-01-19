@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Fredoka', cursive;
+  background: linear-gradient(to top right, #ffd3e0, #ffe6ec);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Central content container */
+.landing-container {
+  text-align: center;
+  z-index: 2;
+}
+
+/* Game Title */
+.game-title {
+  font-size: 6rem;
+  color: #a02856;
+  text-shadow: 2px 2px #fff;
+  margin-bottom: 10px;
+}
+
+/* Catchy Subtitle */
+.tagline {
+  font-size: 2rem;
+  color: #a83e63;
+  margin-bottom: 30px;
+}
+
+/* Button Layout */
+.button-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Cute Buttons */
+.mode-button {
+  padding: 15px 30px;
+  font-size: 2rem;
+  color: #a83e63;
+  border: 2px solid #a83e63;
+  background: white;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mode-button:hover {
+  background-color: rgba(168, 62, 99, 0.1);
+  transform: scale(1.05);
+}
+
+/* Floating clouds in background */
+.clouds::before,
+.clouds::after {
+  content: "";
+  position: absolute;
+  background: url('https://i.imgur.com/hZ6BkJp.png') no-repeat center;
+  background-size: contain;
+  width: 300px;
+  height: 150px;
+  opacity: 0.2;
+  z-index: 0;
+  animation: floatClouds 60s linear infinite;
+}
+
+.clouds::after {
+  top: 80px;
+  left: 50%;
+  animation-delay: 20s;
+}
+
+.clouds::before {
+  top: 30px;
+  left: 10%;
+}
+
+@keyframes floatClouds {
+  0% { transform: translateX(-400px); }
+  100% { transform: translateX(100vw); }
+}
+
+/* Cute Animated Character */
+.cute-character {
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+  width: 250px;
+  height: 100px;
+  z-index: 1;
+  animation: floatBunny 3s ease-in-out infinite;
+}
+
+@keyframes floatBunny {
+  0%, 100% { transform: translateY(0); }
+  80% { transform: translateY(-10px); }
+}
+
+.start-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #ffc1d9;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.start-button:hover {
+  background-color: #ff8cb4;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flip nd' Match</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+
+  <!-- Lottie animation canvas -->
+  <canvas id="lottie-canvas" width="300" height="300" class="lottie-canvas"></canvas>
+
+  <div class="landing-container">
+    <h1 class="game-title">Flip nd' Match</h1>
+    <p class="tagline">Let’s begin the fun!</p>
+
+    <!-- ✅ Start button linked to level1.html -->
+    <a href="level1.html">
+      <button class="start-button">Start</button>
+    </a>
+  </div>
+
+  <!-- Load DotLottie animation -->
+  <script type="module">
+    import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+    new DotLottie({
+      autoplay: true,
+      loop: true,
+      canvas: document.getElementById("lottie-canvas"),
+      src: "https://lottie.host/49a69b3e-e3ec-49fa-b5dd-2937f57d1a1e/IHtPcgOp2b.lottie",
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

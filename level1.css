@@ -1,0 +1,274 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffe6f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #7a3e5f;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #a84b6a;
+  text-align: center;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  /* CENTER horizontally */
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;  /* optional: limits how wide it can go */
+  margin: 0 auto;      /* center in page */
+  box-sizing: border-box;
+}
+
+
+
+.panel-text span {
+  font-weight: bold;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 180px);
+  gap: 25px;
+  justify-content: center;     /* This centers cards inside the game board */
+  align-content: center;
+  margin-top: 30px;
+  
+  /* existing styles */
+  margin-left:-20px;  /* Add this to shift grid right */
+  justify-content: center; /* keep cards centered inside grid */
+
+
+  
+ /* space between panel and grid */
+
+
+   
+}
+
+.card {
+  width: 160px;
+  height: 160px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+  cursor: default;
+}
+
+.card-front {
+  background-color: #f28dae;
+  border: 3px solid #d45677;
+  box-shadow: 0 0 12px #d45677;
+}
+
+.card-back {
+  background-color: #ffd6e8;
+  color: #a84b6a;
+  border: 3px solid #ff85ab;
+  box-shadow: 0 0 12px #ff85ab;
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  user-select: none;
+  .card-back img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  pointer-events: none; /* makes sure the image doesn't block card clicks */
+}
+
+}
+
+#level-clear-message {
+  margin-top: 30px;
+  text-align: center;
+  color: #a84b6a;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes sparkle {
+  0% { box-shadow: 0 0 15px 5px gold; }
+  100% { box-shadow: none; }
+}
+
+.card.sparkle .card-inner {
+  animation: sparkle 0.8s ease-out;
+}
+
+.scoreboard-panel {
+  background: linear-gradient(to bottom, #ffb6c1, #ff82a9);
+  border: 4px solid #fff;
+  border-radius: 24px;
+  box-shadow: 0 0 15px #ffc0cb;
+  padding: 40px 50px;
+  width: 300px;
+  height:300px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;          /* remove any margin */
+flex-shrink: 0;     /* don’t let panel shrink inside flex */
+
+  position: relative;
+  left: -80px;  /* Move scoreboard 20px to the left */
+
+
+  margin-right: autopx;
+}
+
+.panel-header {
+  font-size: 1.6rem;       /* slightly larger text */
+  font-weight: 900;  
+  
+  color: #fff;
+  text-shadow: 2px 2px #d95a9e;
+  letter-spacing: 1px;
+  border-bottom: 2px dashed white;
+  padding-bottom: 10px;
+}
+
+.panel-info div {
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 8px #ffbad2;
+}
+
+.panel-info strong {
+  text-shadow: 2px 2px 4px #b24376; /* label shadow */
+}
+
+.panel-info span {
+  text-shadow: 2px 2px 4px #a02255; /* value shadow */
+}
+
+.gif-container {
+  margin-left: 20px;    /* small space from grid */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.level-gif {
+  width: 320px !important;  /* medium size */
+  height: auto !important;
+  max-width: none !important;
+  display: block;
+}
+
+
+
+.card-back img {
+  width: 100%;        /* Make image fill full width of card-back */
+  height: 100%;       /* Make image fill full height of card-back */
+  object-fit: cover;  /* Cover entire area, cropping if needed */
+  pointer-events: none;
+  user-select: none;
+  border-radius: 12px; /* To keep consistent rounded corners */
+}
+
+#next-level-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#next-level-btn {
+  background: linear-gradient(to bottom, #ffb6c1, #ff82a9);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 30px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(255, 130, 169, 0.6);
+  transition: background 0.3s ease;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+#next-level-btn:hover {
+  background: linear-gradient(to bottom, #ff82a9, #ffb6c1);
+}
+
+
+/* Coin animation styles */
+.coin-animation {
+  position: fixed;
+  font-size: 2rem;
+  pointer-events: none;
+  animation: coin-move 1s ease forwards;
+  z-index: 1000;
+  user-select: none;
+}
+
+@keyframes coin-move {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -60px) scale(0.5);
+    opacity: 0;
+  }
+}
+#timeout-message {
+  font-size: 2rem;
+  color: #a84b6a;
+  font-family: 'YourChosenFont', sans-serif;
+  margin-top: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+
+
+.hidden {
+  display: none;
+}
